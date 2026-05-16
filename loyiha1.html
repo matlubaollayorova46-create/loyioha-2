@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gul Chizish Programmasi</title>
+
+<style>
+    body{
+        margin:0;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:#f0f0f0;
+        font-family:Arial;
+        gap:40px;
+    }
+
+    .flower{
+        position:relative;
+        width:220px;
+        height:220px;
+    }
+
+    .petal{
+        width:90px;
+        height:90px;
+        background:pink;
+        border-radius:50%;
+        position:absolute;
+    }
+
+    .p1{top:0; left:65px;}
+    .p2{top:65px; left:0;}
+    .p3{top:65px; right:0;}
+    .p4{bottom:0; left:65px;}
+    .p5{top:65px; left:65px;}
+
+    .center{
+        width:70px;
+        height:70px;
+        background:yellow;
+        border-radius:50%;
+        position:absolute;
+        top:75px;
+        left:75px;
+        z-index:2;
+    }
+
+    .stem{
+        width:15px;
+        height:180px;
+        background:green;
+        position:absolute;
+        top:200px;
+        left:102px;
+    }
+
+    .controls{
+        background:white;
+        padding:20px;
+        border-radius:15px;
+        box-shadow:0 0 10px rgba(0,0,0,0.2);
+    }
+
+    button{
+        margin-top:10px;
+        padding:10px;
+        width:100%;
+        border:none;
+        background:#4caf50;
+        color:white;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:16px;
+    }
+
+    button:hover{
+        background:#388e3c;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="flower">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+
+    <div class="center"></div>
+    <div class="stem"></div>
+</div>
+
+<div class="controls">
+    <h2>Rang Tanlash</h2>
+
+    <label>Gul bargi:</label><br>
+    <input type="color" id="petalColor" value="#ff69b4"><br><br>
+
+    <label>Markaz:</label><br>
+    <input type="color" id="centerColor" value="#ffff00"><br><br>
+
+    <label>Poya:</label><br>
+    <input type="color" id="stemColor" value="#008000"><br><br>
+
+    <button onclick="changeColors()">Rangni O'zgartir</button>
+</div>
+
+<script>
+function changeColors(){
+
+    let petal = document.querySelectorAll('.petal');
+    let center = document.querySelector('.center');
+    let stem = document.querySelector('.stem');
+
+    let petalColor = document.getElementById('petalColor').value;
+    let centerColor = document.getElementById('centerColor').value;
+    let stemColor = document.getElementById('stemColor').value;
+
+    petal.forEach(p => {
+        p.style.background = petalColor;
+    });
+
+    center.style.background = centerColor;
+    stem.style.background = stemColor;
+}
+</script>
+
+</body>
+</html>
